@@ -15,7 +15,8 @@ import (
 	"time"
 )
 
-func RegisterRoutes(ctx context.Context, mux *http.ServeMux, logger *zap.Logger) []func() {
+func RegisterRoutes(ctx context.Context, mux *http.ServeMux, logger *zap.Logger,
+) []func() {
 	tr := server.NewTransport(mux)
 	dbConfig := db.DatabaseConfig{
 		DSN:                viper.GetString("database.dsn"),
