@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "ListArticleClientEndpoint",
+    "Description": "List Article",
+    "Method": "GET",
+    "Url": "/posts",
+    "ServiceName": "article",
+    "ServiceMethod": "Get",
+    "InputRequest": "EmptyRequest",
+    "OutputResponse": "ProxyResponse"
+  },
+  {
+    "Name": "GetArticleClientEndpoint",
+    "Description": "Get Article",
+    "Method": "GET",
+    "Url": "/posts/{id}",
+    "ServiceName": "article",
+    "ServiceMethod": "Get",
+    "InputRequest": "GetArticleRequest",
+    "OutputResponse": "ProxyResponse"
+  }
+]

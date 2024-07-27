@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "ListUserEndpoint",
+    "Description": "list user",
+    "Method": "GET",
+    "Url": "/user/list",
+    "ServiceName": "User",
+    "ServiceMethod": "ListUser",
+    "InputRequest": "EmptyRequest",
+    "OutputResponse": "ListUserResponse"
+  },
+  {
+    "Name": "ListUserByEmailEndpoint",
+    "Description": "list user by email",
+    "Method": "GET",
+    "Url": "/user/find",
+    "ServiceName": "User",
+    "ServiceMethod": "ListUserByEmail",
+    "InputRequest": "ListUserByEmailRequest",
+    "OutputResponse": "ListUserResponse"
+  },
+  {
+    "Name": "GetUserEndpoint",
+    "Description": "Get user by id",
+    "Method": "GET",
+    "Url": "/user",
+    "ServiceName": "User",
+    "ServiceMethod": "GetUser",
+    "InputRequest": "GetUserRequest",
+    "OutputResponse": "GetUserResponse"
+  },
+  {
+    "Name": "CreateUserEndpoint",
+    "Description": "Create user",
+    "Method": "POST",
+    "Url": "/user/create",
+    "ServiceName": "User",
+    "ServiceMethod": "CreateUser",
+    "InputRequest": "CreateUserRequest",
+    "OutputResponse": "GetUserResponse"
+  },
+  {
+    "Name": "UpdateUserEndpoint",
+    "Description": "Update user",
+    "Method": "PUT",
+    "Url": "/user/update",
+    "ServiceName": "User",
+    "ServiceMethod": "UpdateUser",
+    "InputRequest": "UpdateUserRequest",
+    "OutputResponse": "GetUserResponse"
+  },
+  {
+    "Name": "DeleteUserEndpoint",
+    "Description": "Delete user",
+    "Method": "DELETE",
+    "Url": "/user/delete",
+    "ServiceName": "User",
+    "ServiceMethod": "DeleteUser",
+    "InputRequest": "DeleteUserRequest",
+    "OutputResponse": "EmptyResponse"
+  }
+]
