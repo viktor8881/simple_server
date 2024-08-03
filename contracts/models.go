@@ -1,4 +1,4 @@
-package server
+package generated
 
 type UserResponse struct {
 	ID    string `json:"id"`
@@ -38,6 +38,12 @@ type UpdateUserRequest struct {
 type DeleteUserRequest struct {
 	ID string `json:"id" form:"id" valid:"int,required"`
 }
+
+type GetArticleRequest struct {
+	Id int64 `json:"id" form:"id" valid:"int,required"`
+}
+
+type ProxyResponse any
 
 type EmptyRequest struct{}
 

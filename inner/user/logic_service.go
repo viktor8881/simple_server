@@ -6,18 +6,18 @@ import (
 	"github.com/viktor8881/service-utilities/http/server"
 	"net/http"
 	"simpleserver/domain/user"
-	generated "simpleserver/generated/http/server"
+	"simpleserver/generated"
 )
 
-type UserService struct {
+type Service struct {
 	repository *user.Repository
 }
 
-func NewService(repository *user.Repository) *UserService {
-	return &UserService{repository: repository}
+func NewService(repository *user.Repository) *Service {
+	return &Service{repository: repository}
 }
 
-func (s *UserService) ListUser(ctx context.Context, in *generated.EmptyRequest) (*generated.ListUserResponse, error) {
+func (s *Service) ListUser(ctx context.Context, in *generated.EmptyRequest) (*generated.ListUserResponse, error) {
 	users, err := s.repository.FetchAll(ctx)
 	if err != nil {
 		return nil, err
@@ -26,7 +26,7 @@ func (s *UserService) ListUser(ctx context.Context, in *generated.EmptyRequest) 
 	return listUserToResponse(users), nil
 }
 
-func (s *UserService) GetUser(ctx context.Context, in *generated.GetUserRequest) (*generated.GetUserResponse, error) {
+func (s *Service) GetUser(ctx context.Context, in *generated.GetUserRequest) (*generated.GetUserResponse, error) {
 	userModel, err := s.repository.Get(ctx, in.ID)
 	if err != nil {
 		if errors.Is(err, user.ErrNotFound) {
@@ -42,7 +42,7 @@ func (s *UserService) GetUser(ctx context.Context, in *generated.GetUserRequest)
 	return userToResponse(userModel), nil
 }
 
-func (s *UserService) CreateUser(ctx context.Context, in *generated.CreateUserRequest) (*generated.GetUserResponse, error) {
+func (s *Service) CreateUser(ctx context.Context, in *generated.CreateUserRequest) (*generated.GetUserResponse, error) {
 	user := user.Model{
 		Name:  in.Name,
 		Email: in.Email,
@@ -58,7 +58,7 @@ func (s *UserService) CreateUser(ctx context.Context, in *generated.CreateUserRe
 	return userToResponse(&user), nil
 }
 
-func (s *UserService) UpdateUser(ctx context.Context, in *generated.UpdateUserRequest) (*generated.GetUserResponse, error) {
+func (s *Service) UpdateUser(ctx context.Context, in *generated.UpdateUserRequest) (*generated.GetUserResponse, error) {
 	userModel := user.Model{
 		ID:    in.ID,
 		Name:  in.Name,
@@ -86,7 +86,7 @@ func (s *UserService) UpdateUser(ctx context.Context, in *generated.UpdateUserRe
 	return userToResponse(&userModel), nil
 }
 
-func (s *UserService) DeleteUser(ctx context.Context, in *generated.DeleteUserRequest) (*generated.EmptyResponse, error) {
+func (s *Service) DeleteUser(ctx context.Context, in *generated.DeleteUserRequest) (*generated.EmptyResponse, error) {
 	_, err := s.repository.Delete(ctx, in.ID)
 	if err != nil {
 		if errors.Is(err, user.ErrNotFound) {
@@ -102,7 +102,7 @@ func (s *UserService) DeleteUser(ctx context.Context, in *generated.DeleteUserRe
 	return &generated.EmptyResponse{}, nil
 }
 
-func (s *UserService) ListUserByEmail(ctx context.Context, in *generated.ListUserByEmailRequest) (*generated.ListUserResponse, error) {
+func (s *Service) ListUserByEmail(ctx context.Context, in *generated.ListUserByEmailRequest) (*generated.ListUserResponse, error) {
 	users, err := s.repository.FetchAllByEmail(ctx, in.Email)
 	if err != nil {
 		return nil, err

@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "ListUserEndpoint",
+    "Description": "list user",
+    "Method": "GET",
+    "Url": "/userlist",
+    "ServiceName": "User",
+    "ServiceMethod": "ListUser",
+    "InputRequest": "EmptyRequest",
+    "OutputResponse": "ListUserResponse"
+  },
+  {
+    "Name": "ListUserByEmailEndpoint",
+    "Description": "list user by email",
+    "Method": "GET",
+    "Url": "/userfind",
+    "ServiceName": "User",
+    "ServiceMethod": "ListUserByEmail",
+    "InputRequest": "ListUserByEmailRequest",
+    "OutputResponse": "ListUserResponse"
+  },
+  {
+    "Name": "GetUserEndpoint",
+    "Description": "Get user by id",
+    "Method": "GET",
+    "Url": "/user",
+    "ServiceName": "User",
+    "ServiceMethod": "GetUser",
+    "InputRequest": "GetUserRequest",
+    "OutputResponse": "GetUserResponse"
+  }
+]

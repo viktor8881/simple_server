@@ -2,7 +2,7 @@ package user
 
 import (
 	"simpleserver/domain/user"
-	generated "simpleserver/generated/http/server"
+	"simpleserver/generated"
 )
 
 func userToResponse(u *user.Model) *generated.GetUserResponse {

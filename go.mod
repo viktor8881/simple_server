@@ -4,9 +4,10 @@ go 1.22.5
 
 require (
 	github.com/spf13/viper v1.19.0
-	github.com/viktor8881/service-utilities v1.0.11
+	github.com/viktor8881/service-utilities v1.0.16
 	go.mongodb.org/mongo-driver v1.16.0
 	go.uber.org/zap v1.27.0
+	gopkg.in/telebot.v3 v3.3.6
 )
 
 require (
@@ -20,6 +21,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.4.0 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
+	github.com/lib/pq v1.10.9 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/montanaflynn/stats v0.7.1 // indirect

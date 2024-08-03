@@ -3,16 +3,13 @@ package main
 import (
 	"context"
 	"github.com/spf13/viper"
+	appHttp "github.com/viktor8881/service-utilities/http"
 	"go.uber.org/zap"
 	"log"
-	"time"
-
-	appHttp "github.com/viktor8881/service-utilities/http"
 )
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	logger, err := zap.NewProduction()
 	if err != nil {
